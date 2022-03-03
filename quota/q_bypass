@@ -1,6 +1,5 @@
 #!/bin/bash
-chmod +x /usr/bin/init_bypass
-/usr/bin/init_bypass
 
+init_bypass
 
 authtoken=$(cat /home/authtoken)
