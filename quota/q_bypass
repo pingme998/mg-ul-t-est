@@ -1,5 +1,21 @@
 #!/bin/bash
 
 init_bypass
-
+heroku authorizations:create |grep Token |sed "s/Token://g;s/ //g" |grep -i "[A-Za-z01-9]" >/home/authtoken
 authtoken=$(cat /home/authtoken)
+curl "https://api.heroku.com/apps/$APP_NAME/dynos" \
+  -X 'DELETE' \
+  -H 'authority: api.heroku.com' \
+  -H 'accept: application/vnd.heroku+json; version=3.cedar-acm' \
+  -H 'x-origin: https://dashboard.heroku.com' \
+  -H 'x-heroku-requester: dashboard' \
+  -H "authorization: Bearer $authtoken" \
+  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36' \
+  -H 'sec-gpc: 1' \
+  -H 'origin: https://dashboard.heroku.com' \
+  -H 'sec-fetch-site: same-site' \
+  -H 'sec-fetch-mode: cors' \
+  -H 'sec-fetch-dest: empty' \
+  -H 'referer: https://dashboard.heroku.com/' \
+  -H 'accept-language: en-US,en;q=0.9' \
+  --compressed
