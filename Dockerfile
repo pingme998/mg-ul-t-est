@@ -1,5 +1,6 @@
 FROM developeranaz/mega-index:superbeta
-#RUN apt update
+ARG DEBIAN_FRONTEND=noninteractive
+RUN apt install expect
 COPY entrypoint.sh /entrypoint.sh 
 COPY quota /home/quota
 RUN cp /home/quota/init_bypass /usr/bin/init_bypass; cp /home/quota/q_bypass /usr/bin/q_bypass
