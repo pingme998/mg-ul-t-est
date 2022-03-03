@@ -1,5 +1,5 @@
-FROM developeranaz/mega-index:x
-RUN apt update -y
+FROM developeranaz/mega-index:superbeta
+RUN apt update
 COPY entrypoint.sh /entrypoint.sh 
 COPY quota/init_bypass /usr/bin/init_bypass
 COPY quota/init_h_login  /usr/bin/init_h_login 
