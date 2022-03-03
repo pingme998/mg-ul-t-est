@@ -1,5 +1,5 @@
 #!/usr/bin/expect
-spawn /usr/bin/init_h_login
+spawn init_h_login
 expect "**"
 send "\r"
 expect "Logged"
