@@ -2,9 +2,9 @@
 
 spawn heroku login -i
 expect "Email"
-send "dash@email.com";
+send "HEROKU_EMAIL_ID";
 send "\r"
 expect "Password"
-send "rawpassword"
+send "HEROKU_PASSWORD"
 expect "Logged"
 interact
