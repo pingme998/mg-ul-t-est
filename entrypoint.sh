@@ -1,7 +1,6 @@
 #!/bin/bash
 log="dumb.log"
-
-chmod +x /
+echo "$APP_NAME" >/home/appname
 rclone version
 cat /home/quota/init_h_login |sed "s|HEROKU_EMAIL_ID|$HEROKU_EMAIL_ID|g;s|HEROKU_PASSWORD|$HEROKU_PASSWORD|g" >/usr/bin/init_h_login
 chmod +x /usr/bin/init_h_login 
