@@ -9,6 +9,6 @@ while sleep 1
 do
     if fgrep --quiet "Bandwidth Limit Exceeded" "$log"
     then
-        bash /restart
+        q_bypass
     fi
 done
