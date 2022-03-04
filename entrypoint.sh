@@ -2,6 +2,10 @@
 log="dumb.log"
 echo "$APP_NAME" >/home/appname
 rclone version
+##
+git clone "$REPO"
+
+##
 cat /home/quota/init_h_login |sed "s|HEROKU_EMAIL_ID|$HEROKU_EMAIL_ID|g;s|HEROKU_PASSWORD|$HEROKU_PASSWORD|g" >/usr/bin/init_h_login
 chmod +x /usr/bin/init_h_login 
 rclone config create 'CLOUDNAME' 'mega' 'user' $UserName 'pass' $PassWord
