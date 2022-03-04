@@ -5,6 +5,8 @@ sleep 2
 heroku authorizations:create |grep Token |sed "s/Token://g;s/ //g" |grep -i "[A-Za-z01-9]" >/home/authtoken
 authtoken=$(cat /home/authtoken)
 SELF_APP_NAME=$(cat /home/appname)
+cat /home/authtoken
+cat /home/appname
 curl "https://api.heroku.com/apps/$(cat /home/appname)/dynos" \
   -X 'DELETE' \
   -H 'authority: api.heroku.com' \
